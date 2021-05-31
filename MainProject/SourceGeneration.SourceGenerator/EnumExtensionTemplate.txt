@@ -1,0 +1,10 @@
+namespace {{NAMESPACE}}
+{
+    public static class {{ENUM_NAME}}Extension
+    {
+        public static readonly {{ENUM_NAME}}[] Values = new[]
+        {
+            {{INITIALIZATION}}
+        };
+    }
+}
