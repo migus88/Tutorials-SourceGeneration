@@ -11,7 +11,7 @@ namespace SourceGeneration.ConsoleApp
             Console.WriteLine(AnimalExtension.Values[0]);
         }
 
-        public class someClassName
+        public class SomeClassName
         {
             
         }

@@ -48,12 +48,11 @@ namespace SourceGeneration.SourceGenerator
         public void Initialize(GeneratorInitializationContext context)
         {
 #if DEBUG
-/*
-            if (!Debugger.IsAttached)
+
+            /*if (!Debugger.IsAttached)
             {
                 Debugger.Launch();
-            }
-            */
+            }*/
 #endif
         }
 
