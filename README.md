@@ -58,7 +58,7 @@ The code we generate can be based on something the programmer already wrote, in 
 
 It works in the following way:
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/1.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/1.png?raw=true)
 
 Source: [https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/)
 
@@ -86,7 +86,7 @@ In the following sections I will explain how to create a source generator in Rid
 
 Let's create an empty solution and add a class library project to it with target framework `netstandard2.0`. This will be our source generation and code analysis project.
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%201.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%201.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/2.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/2.png?raw=true)
 
 1
 
@@ -115,7 +115,7 @@ Alternatively, you can edit your ".csproj" file by adding to it the following:
 
 Now let's create a new project. This time we will create a Console application which will target the "net5.0" framework.
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%202.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%202.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/3.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/3.png?raw=true)
 
 2
 
@@ -123,7 +123,7 @@ We have to make sure, that our project is using the C# 9. This can be found in p
 
 In Rider, right-click on the project and select "Properties" and then make sure that the "Language Version" is set to "C# 9" and click "OK".
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%203.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%203.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/4.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/4.png?raw=true)
 
 3
 
@@ -133,11 +133,11 @@ The easiest way I found to do so is to add the "Source Generator" assembly as a 
 
 Under your project, right-click on the "Dependencies" and select "Add Reference". In the opened window, check the "Source Generator" project and click "Add".
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%204.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%204.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/5.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/5.png?raw=true)
 
 4.1
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%205.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%205.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/6.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/6.png?raw=true)
 
 4.2
 
@@ -275,21 +275,21 @@ Now, when we know exactly what we want to do, it's time to write some code.
 
 When writing a generator, I love to use embedded resources as a template. Let's create one. Right-click on the "Source Generator" project → "Add" → "File" and call it something like `EnumExtensionTemplate.txt`.
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%206.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%206.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/7.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/7.png?raw=true)
 
 5.1
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%207.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%207.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/8.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/8.png?raw=true)
 
 5.2
 
 Now right-click on the newly created file and then press on the "Properties" field. In the opened window change the "Build action:" to `EmbededResource`.
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%208.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%208.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/9.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/9.png?raw=true)
 
 6.1
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%209.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%209.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/10.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/10.png?raw=true)
 
 6.2
 
@@ -601,7 +601,7 @@ Basically we get a list of Syntax Trees. Each Tree is a file in our project, so 
 
 For me, the best way to learn it was to install the "[Syntax Visualizer](https://docs.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/syntax-visualizer?tabs=csharp)" plugin for Visual Studio and every time I want to know how to find something in the syntax tree, I look at it through this plugin.
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%2010.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%2010.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/11.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/11.png?raw=true)
 
 7
 
@@ -865,7 +865,7 @@ First we need to compile our project (preferably in a "Release" mode) and import
 
 After we've imported the DLL, we need to make sure it is not built into our project and used only while we code and compile. We do it by unchecking all platforms under "Select platforms for plugin" in the inspector window.
 
-![Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%2011.png](Code%20Analyzers%20and%20Source%20Generation%2087f793b5f3a1494fac1c857b7eeef6f9/Untitled%2011.png)
+![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/12.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/12.png?raw=true)
 
 8
 
