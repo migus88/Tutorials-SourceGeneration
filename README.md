@@ -88,7 +88,6 @@ Let's create an empty solution and add a class library project to it with target
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/2.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/2.png?raw=true)
 
-1
 
 Now we need to add couple of nuget packages to the project. Open your nuget explorer, search and install the following packages:
 
@@ -117,7 +116,6 @@ Now let's create a new project. This time we will create a Console application w
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/3.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/3.png?raw=true)
 
-2
 
 We have to make sure, that our project is using the C# 9. This can be found in project properties window. 
 
@@ -125,7 +123,6 @@ In Rider, right-click on the project and select "Properties" and then make sure 
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/4.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/4.png?raw=true)
 
-3
 
 The next step is to add our "Source Generator" as an "Analyzer Reference" to our project (remember that "Source Generator" is built on top of the "Code Analyzers"?).
 
@@ -135,11 +132,9 @@ Under your project, right-click on the "Dependencies" and select "Add Reference"
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/5.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/5.png?raw=true)
 
-4.1
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/6.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/6.png?raw=true)
 
-4.2
 
 Now, in the solution window, select the project and press F4 on your keyboard (or right-click the project → Edit → Edit '...csproj' ).
 
@@ -277,21 +272,17 @@ When writing a generator, I love to use embedded resources as a template. Let's 
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/7.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/7.png?raw=true)
 
-5.1
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/8.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/8.png?raw=true)
 
-5.2
 
 Now right-click on the newly created file and then press on the "Properties" field. In the opened window change the "Build action:" to `EmbededResource`.
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/9.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/9.png?raw=true)
 
-6.1
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/10.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/10.png?raw=true)
 
-6.2
 
 Let's look at the code we wrote earlier. If we want to convert this solution into a template, we need to identify the reusable parts. Usually I copy the whole solution and then start to replace some parts with a placeholders wrapped in double curly brackets.
 
@@ -603,7 +594,6 @@ For me, the best way to learn it was to install the "[Syntax Visualizer](https:/
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/11.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/11.png?raw=true)
 
-7
 
 ## Implementing Code Analyzer
 
@@ -867,7 +857,6 @@ After we've imported the DLL, we need to make sure it is not built into our proj
 
 ![https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/12.png?raw=true](https://raw.githubusercontent.com/migus88/Tutorials-SourceGeneration/master/ReadmeImages/12.png?raw=true)
 
-8
 
 The last step is to add `RoslynAnalyzer` label to this DLL. In the Inspector window, click on the small label icon, then in the small search bar write `RoslynAnalyzer` and press enter.
 
@@ -876,9 +865,6 @@ Now let's copy our `ExtendAttribute` into Unity so we'll be able to use it. By t
 After the project will finish to recompile, our "Source Generator" and the "Code Analyzer" will work inside the unity project.
 
 ## Useful Links
-
-All of the code written in this article can be found here:
-[https://github.com/migus88/Tutorials-SourceGeneration](https://github.com/migus88/Tutorials-SourceGeneration)
 
 An article on "Code Analysis" and "Code fixes":
 [https://docs.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/tutorials/how-to-write-csharp-analyzer-code-fix](https://docs.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/tutorials/how-to-write-csharp-analyzer-code-fix)
@@ -891,5 +877,3 @@ Another nice article on "Source Generation":
 
 Video about compile-time DI frameworks:
 [https://youtu.be/nqvnqzRNBls](https://youtu.be/nqvnqzRNBls)
-
-[Presentation (HE)](https://www.notion.so/Presentation-HE-95d7e5a372154c60bdfc528336d38a89)
